@@ -1,0 +1,28 @@
+#footer {
+  color: #f5c4f5;
+}
+
+ul {
+  color: #cfb8cf;
+  background-color: #bdbdbd;
+}
+
+#block-views-imported-coffees-block h2 {
+  font-size: 34px;
+}
+
+.views-row .views-field {
+  font-size: 26px;
+}
+
+.form-item .form-text {
+  border-top-style: inset;
+  border-right-style: inset;
+  border-bottom-style: inset;
+  border-left-style: inset;
+}
+
+.region #block-views-imported-coffees-block {
+  margin-top: 10px;
+}
+
