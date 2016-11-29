@@ -1,0 +1,23 @@
+<?php
+function pet_menu() {
+    $items = array();
+    $items['pet'] = array(
+        'title' => "Snuffles, son.",
+        'page callback' => 'pet_display',
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM,
+        );
+    return $items;
+}
+
+function pet_display() {
+  $module_path = drupal_get_path('module', 'pet');
+  drupal_add_css($module_path . '/styles/styles.css');
+  return '
+    <h1>Snuffles!</h1>
+    <a href="http://rickandmorty.wikia.com/wiki/Snuffles" target="_new">
+      <img src="' . $module_path . '/img/snuffles.jpg" alt="Snuffles, son.">
+    </a>
+    <p>"Where are my <a href="https://answers.yahoo.com/question/index?qid=20090130091326AAALH2N" target="_new">Greenies</a>, Donna?"</p>
+    ';
+}
