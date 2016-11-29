@@ -1,0 +1,26 @@
+<?php
+function hello_user_menu() {
+    $items = array();
+    $items['hello_user'] = array(
+        'title' => 'User Created!',
+        'page callback' => 'confirm_user',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+    );
+
+    return $items;
+}
+
+function confirm_user() {
+    return '<p>new user is created!</p>';
+}
+
+function hello_user_user_insert(){
+
+    // echo '<pre>';
+    // var_dump($edit);
+    // echo '</pre>';
+    // exit;
+
+    $_GET['destination'] = 'hello_user';
+}
