@@ -10,6 +10,14 @@ function greeting_menu() {
     $items['farewell'] = array(
         'title' => 'Farewell Friend!',
         'page callback' => 'say_farewell',
+        'page arguments' => array('Visitor'),
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM,
+    );
+    $items['farewell/admin'] = array(
+        'title' => 'Catch Ya Later, Adminstrator!',
+        'page callback' => 'say_farewell',
+        'page arguments' => array('Administrator'),
         'access callback' => TRUE,
         'type' => MENU_NORMAL_ITEM,
     );
@@ -20,19 +28,34 @@ function say_hello() {
     return '<p>Hello my dear friend!</p>';
 }
 
-function say_farewell() {
-    return '<p>Fare thee well my dear friend!</p>';
+function say_farewell($message_text) {
+    return '<p>Fare thee well, ' . $message_text . '!</p>';
 }
 
 function greeting_user_login(&$edit, $account){
 
+    if (in_array('administrator', $account->roles)) {
+      $destination_route = '#overlay=admin/modules';
+    } elseif (in_array('authenticated user', $account->roles)) {
+      $destination_route = 'pet';
+    } else {
+      $destination_route = '/';
+    }
     // echo '<pre>';
-    // var_dump($edit);
+    // var_dump(in_array('administrator', $account->roles));
     // echo '</pre>';
     // exit;
 
-    $_GET['destination'] = 'hello_friend';
+    $_GET['destination'] = $destination_route;
 }
-function greeting_user_logout(){
+function greeting_user_logout($account){
+
+  if (in_array('administrator', $account->roles)) {
+    $_GET['destination'] = 'farewell/admin';
+  } elseif (in_array('authenticated user', $account->roles)) {
     $_GET['destination'] = 'farewell';
+  } else {
+    $_GET['destination'] = '/';
+  }
+
 }
