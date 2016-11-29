@@ -1,0 +1,21 @@
+<?php
+function comment_buddy_menu() {
+    $items = array();
+    $items['comment_buddy'] = array(
+        'title' => 'Comment Buddy!',
+        'type' => MENU_CALLBACK,
+    );
+    return $items;
+}
+
+function comment_buddy_comment_insert(){
+    drupal_set_message("Your highly valued opinion has been accepted!");
+}
+
+function comment_buddy_comment_delete(){
+    drupal_set_message("What happens in Las Comments stays in Las Comments.");
+}
+
+function comment_buddy_comment_update(){
+    drupal_set_message("Backpedalling is a serious life skill.");
+}
