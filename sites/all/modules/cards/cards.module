@@ -5,8 +5,8 @@ function cards_menu() {
     foreach ($friends as $friend) {
       $items['cards/' . $friend] = array(
           'title' => 'Hello, ' . $friend . '!',
-          'page callback' => 'greet_friend',
           'page arguments' => array($friend),
+          'page callback' => 'greet_friend',
           'access callback' => TRUE,
           'type' => MENU_NORMAL_ITEM,
       );
