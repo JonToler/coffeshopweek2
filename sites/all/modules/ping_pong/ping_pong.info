@@ -1,0 +1,5 @@
+name = Ping Pong
+description = Displays all numbers entered by user, but replaces numbers divisible by 3 with ping and 5 with pong and divisible by 15 into Ping Pong.
+package = Epicodus Examples
+core = 7.x
+files[] = ping_pong.module
